@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Jacaranda - Aromaterapia Artesanal</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</th>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Jacarandá<span>Aromaterapia</span></h1>
+            </div>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu" id="navMenu">
+                <button class="menu-close" id="menuClose">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul>
+                    <li><a href="index.html" class="menu-link active">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#beneficios">Beneficios</a></li>
+                    <li><a href="#destacados">Productos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="tienda.html" class="menu-link-tienda">
+                        <i class="fas fa-store"></i> Tienda
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Aceites esenciales 100% naturales</h2>
+                <p>Elaborados artesanalmente con amor y respeto por la naturaleza</p>
+                <a href="#destacados" class="btn">Conoce nuestras esencias</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NOSOTROS ===== -->
+    <section id="nosotros" class="nosotros">
+        <div class="container">
+            <div class="nosotros-content">
+                <span class="seccion-etiqueta">Nuestra historia</span>
+                <h2>Hecho con <span class="destacado">❤️</span> por Caro</h2>
+                <div class="nosotros-grid">
+                    <div class="nosotros-texto">
+                        <p class="grande">Más de 20 años acompañando procesos de sanación a través de la aromaterapia.</p>
+                        <p>Carolina, aromaterapeuta y fundadora de Jacarandá, selecciona personalmente cada ingrediente y elabora en pequeños lotes para garantizar la máxima calidad y propiedades terapéuticas.</p>
+                        <p>Cada frasco cuenta una historia de tradición familiar, respeto por la tierra y amor por lo que hacemos.</p>
+                        <a href="#contacto" class="btn-link">Conoce más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="nosotros-imagen">
+                        <img src="https://images.pexels.com/photos/4194851/pexels-photo-4194851.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Elaboración artesanal de aceites">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BENEFICIOS ===== -->
+    <section id="beneficios" class="beneficios">
+        <div class="container">
+            <div class="beneficios-header">
+                <span class="seccion-etiqueta">¿Por qué Jacarandá?</span>
+                <h2>La naturaleza en su máxima expresión</h2>
+            </div>
+            <div class="beneficios-grid">
+                <div class="beneficio-card">
+                    <div class="beneficio-icono">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>100% Puros</h3>
+                    <p>Sin aditivos, sin químicos, sin diluciones. Aceites esenciales en su estado más puro.</p>
+                </div>
+                <div class="beneficio-card">
+                    <div class="beneficio-icono">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Artesanales</h3>
+                    <p>Elaborados en pequeños lotes con métodos tradicionales de destilación.</p>
+                </div>
+                <div class="beneficio-card">
+                    <div class="beneficio-icono">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Con Propósito</h3>
+                    <p>Cada compra apoya a familias de productores locales y sustentables.</p>
+                </div>
+                <div class="beneficio-card">
+                    <div class="beneficio-icono">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Certificados</h3>
+                    <p>Libres de pesticidas y cultivos responsables con el medio ambiente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRODUCTOS DESTACADOS ===== -->
+    <section id="destacados" class="destacados">
+        <div class="container">
+            <div class="destacados-header">
+                <span class="seccion-etiqueta">Nuestros esenciales</span>
+                <h2>Los favoritos de la comunidad</h2>
+                <p class="subtitulo">Dos de nuestros aceites más amados. Prueba el set y descubre por qué.</p>
+            </div>
+
+            <div class="destacados-grid">
+                <!-- Producto 1 -->
+                <div class="destacado-card">
+                    <div class="destacado-badge">Más vendido</div>
+                    <div class="destacado-img">
+                        <img src="https://images.pexels.com/photos/4195694/pexels-photo-4195694.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Aceite de Lavanda">
+                    </div>
+                    <div class="destacado-info">
+                        <h3>Aceite de Lavanda</h3>
+                        <p class="destacado-desc">Relajante, calmante, ideal para dormir</p>
+                        <div class="destacado-precio">
+                            <span class="precio">$15.99</span>
+                            <span class="tamaño">30ml</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Producto 2 -->
+                <div class="destacado-card">
+                    <div class="destacado-badge">Recomendado</div>
+                    <div class="destacado-img">
+                        <img src="https://images.pexels.com/photos/4195534/pexels-photo-4195534.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Aceite de Menta">
+                    </div>
+                    <div class="destacado-info">
+                        <h3>Aceite de Menta</h3>
+                        <p class="destacado-desc">Energizante, refrescante, ideal para concentración</p>
+                        <div class="destacado-precio">
+                            <span class="precio">$14.99</span>
+                            <span class="tamaño">30ml</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ver-mas-container">
+                <a href="tienda.html" class="btn btn-grande">
+                    <i class="fas fa-store"></i> Explorar tienda completa
+                </a>
+                <p class="texto-secundario">
+                    <i class="fas fa-flask"></i> +12 aceites esenciales | 
+                    <i class="fas fa-droplet"></i> Difusores | 
+                    <i class="fas fa-gift"></i> Sets especiales
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROCESO ===== -->
+    <section class="proceso">
+        <div class="container">
+            <div class="proceso-header">
+                <span class="seccion-etiqueta">Cómo lo hacemos</span>
+                <h2>Del campo a tu hogar</h2>
+            </div>
+            <div class="proceso-grid">
+                <div class="proceso-item">
+                    <div class="proceso-numero">1</div>
+                    <div class="proceso-contenido">
+                        <h3>Cultivo sustentable</h3>
+                        <p>Trabajamos con pequeños productores que respetan los ciclos naturales.</p>
+                    </div>
+                </div>
+                <div class="proceso-item">
+                    <div class="proceso-numero">2</div>
+                    <div class="proceso-contenido">
+                        <h3>Cosecha manual</h3>
+                        <p>Seleccionamos las plantas en su punto óptimo de floración.</p>
+                    </div>
+                </div>
+                <div class="proceso-item">
+                    <div class="proceso-numero">3</div>
+                    <div class="proceso-contenido">
+                        <h3>Destilación lenta</h3>
+                        <p>Proceso artesanal que preserva todas las propiedades.</p>
+                    </div>
+                </div>
+                <div class="proceso-item">
+                    <div class="proceso-numero">4</div>
+                    <div class="proceso-contenido">
+                        <h3>Envasado amoroso</h3>
+                        <p>Cada frasco es etiquetado a mano por Caro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIOS ===== -->
+    <section class="testimonios">
+        <div class="container">
+            <div class="testimonios-header">
+                <span class="seccion-etiqueta">Experiencias</span>
+                <h2>Lo que dicen nuestros clientes</h2>
+            </div>
+            <div class="testimonios-grid">
+                <div class="testimonio-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"El aceite de lavanda de Jacarandá cambió mis noches. Por fin puedo dormir sin despertarme a las 3am."</p>
+                    <div class="testimonio-autor">
+                        <strong>Ana G.</strong>
+                        <span>⏤ Cliente desde 2023</span>
+                    </div>
+                </div>
+                <div class="testimonio-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Se nota que son artesanales. El aroma es completamente diferente a los que venden en farmacias."</p>
+                    <div class="testimonio-autor">
+                        <strong>Carlos M.</strong>
+                        <span>⏤ Aromaterapeuta</span>
+                    </div>
+                </div>
+                <div class="testimonio-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Compré el set de iniciación y ya estoy pidiendo mi tercer pedido. Mi favorito: eucalipto."</p>
+                    <div class="testimonio-autor">
+                        <strong>Laura R.</strong>
+                        <span>⏤ Yoga teacher</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section id="contacto" class="contacto">
+        <div class="container">
+            <div class="contacto-header">
+                <span class="seccion-etiqueta">Escríbenos</span>
+                <h2>¿Tienes dudas?</h2>
+                <p class="subtitulo">CarolinaMaría responde personalmente cada mensaje</p>
+            </div>
+            <div class="contacto-grid">
+                <div class="contacto-info">
+                    <div class="contacto-card">
+                        <h3><i class="fas fa-heart" style="color: var(--jacaranda-claro);"></i> Atención personalizada</h3>
+                        <p>Respondemos en menos de 24 horas</p>
+                        <div class="contacto-detalles">
+                            <p><i class="fas fa-map-marker-alt"></i> Ciudad de Rosario, Santa Fe - Argentina</p>
+                            <p><i class="fas fa-phone"></i> +54 341 1112222</p>
+                            <p><i class="fas fa-envelope"></i> hola@jacaranda.mx</p>
+                        </div>
+                        <div class="redes-sociales">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Jacarandá</h3>
+                    <p>Aromaterapia artesanal</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Explora</h4>
+                        <ul>
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="#nosotros">Nosotros</a></li>
+                            <li><a href="#destacados">Productos</a></li>
+                            <li><a href="tienda.html">Tienda</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Ayuda</h4>
+                        <ul>
+                            <li><a href="#">Envíos</a></li>
+                            <li><a href="#">Devoluciones</a></li>
+                            <li><a href="#">Preguntas frecuentes</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Jacarandá Aromaterapia. Todos los derechos reservados.</p>
+                <p>Hecho con <i class="fas fa-heart" style="color: var(--jacaranda-claro);"></i> en Argentina</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./scripts/script.js"></script>
+</body>
+</html>

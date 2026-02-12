@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Tienda Jacarandá - Aceites esenciales artesanales</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Jacarandá<span>Aromaterapia</span></h1>
+            </div>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu" id="navMenu">
+                <button class="menu-close" id="menuClose">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul>
+                    <li><a href="index.html" class="menu-link">Inicio</a></li>
+                    <li><a href="index.html#nosotros">Nosotros</a></li>
+                    <li><a href="tienda.html" class="menu-link active">Tienda</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== CARRITO FLOTANTE ===== -->
+    <div class="cart-floating" id="cartFloating">
+        <button class="cart-toggle" id="cartToggle">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+        
+        <div class="cart-panel" id="cartPanel">
+            <div class="cart-header">
+                <h3>Mi carrito</h3>
+                <button class="cart-close" id="cartClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <p class="cart-empty">Tu carrito está vacío</p>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+                <button class="btn btn-primary" id="checkoutBtn">
+                    <i class="fas fa-check-circle"></i> Finalizar compra
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HERO TIENDA ===== -->
+    <section class="hero-tienda">
+        <div class="container">
+            <div class="hero-tienda-content">
+                <h1>Nuestra tienda</h1>
+                <p>Aceites esenciales puros, elaborados artesanalmente</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FILTROS ===== -->
+    <section class="filtros">
+        <div class="container">
+            <div class="filtros-wrapper">
+                <div class="filtros-tabs">
+                    <button class="filtro-btn active" data-filtro="todos">Todos</button>
+                    <button class="filtro-btn" data-filtro="aceites">Aceites</button>
+                    <button class="filtro-btn" data-filtro="difusores">Difusores</button>
+                    <button class="filtro-btn" data-filtro="sets">Sets</button>
+                </div>
+                <div class="ordenar">
+                    <select id="ordenarPor">
+                        <option value="recomendados">Recomendados</option>
+                        <option value="menor-precio">Menor precio</option>
+                        <option value="mayor-precio">Mayor precio</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRODUCTOS GRID ===== -->
+    <section class="tienda-productos">
+        <div class="container">
+            <div class="productos-grid" id="productosGrid"></div>
+            
+            <!-- Cargando... -->
+            <div class="cargando" id="cargando" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i> Cargando productos...
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Jacarandá</h3>
+                    <p>Aromaterapia artesanal</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Explora</h4>
+                        <ul>
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="index.html#nosotros">Nosotros</a></li>
+                            <li><a href="tienda.html">Tienda</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">WhatsApp</a></li>
+                            <li><a href="#">hola@jacaranda.mx</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Jacarandá Aromaterapia</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./scripts/script.js"></script>
+</body>
+</html>
