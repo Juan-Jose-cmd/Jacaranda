@@ -165,7 +165,7 @@ header .container {
 /* ===== HERO - PÁGINA PRINCIPAL ===== */
 .hero {
     background: linear-gradient(135deg, rgba(94, 58, 92, 0.85), rgba(138, 91, 140, 0.85)), 
-                url('https://images.pexels.com/photos/4194851/pexels-photo-4194851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+                url('https://www.viveropullally.cl/wp-content/uploads/2017/11/Jacaranda-mimosifolia_-1-1200x1200.jpg');
     background-size: cover;
     background-position: center;
     color: var(--blanco-crema);
