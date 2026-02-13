@@ -56,12 +56,22 @@ header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    height: 100%; /* Asegura que ocupe todo el alto del header */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .logo h1 {
     font-size: 1.3rem;
     color: var(--violeta-profundo);
     font-weight: 700;
+    margin: 0;
+    line-height: 1;
 }
 
 .logo span {
@@ -1359,28 +1369,74 @@ footer {
 @media screen and (min-width: 1024px) {
     .menu-toggle,
     .menu-close {
-        display: none;
+        display: none !important;
     }
     
     .nav-menu {
-        position: static;
-        left: 0;
-        width: auto;
-        height: auto;
-        padding: 0;
-        box-shadow: none;
-        background: none;
-        border-right: none;
+        position: static !important;
+        left: auto !important;
+        width: auto !important;
+        height: 100% !important; /* Ocupa todo el alto del header */
+        max-width: none !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        background: none !important;
+        border-right: none !important;
+        display: flex !important;
+        align-items: center !important; /* Centra verticalmente */
     }
     
     .nav-menu ul {
-        flex-direction: row;
-        gap: 1.5rem;
+        flex-direction: row !important;
+        gap: 0.5rem !important;
+        display: flex !important;
+        align-items: center !important;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+    
+    .nav-menu li {
+        display: flex;
+        align-items: center;
+        height: 100%;
     }
     
     .nav-menu a {
-        font-size: 0.95rem;
-        padding: 0.5rem 1rem;
+        font-size: 0.95rem !important;
+        padding: 0.5rem 0.8rem !important;
+        display: flex !important;
+        align-items: center !important;
+        white-space: nowrap; /* Evita que el texto se rompa */
+        border-left: 3px solid transparent !important;
+        margin: 0;
+        height: fit-content;
+    }
+    
+    .nav-menu a:hover,
+    .nav-menu a.active {
+        padding-left: 0.8rem !important; /* Mantiene el padding consistente */
+    }
+    
+    /* Estilo especial para el enlace de tienda en desktop */
+    .menu-link-tienda {
+        background: linear-gradient(135deg, var(--purpura-flor), var(--violeta-profundo)) !important;
+        color: var(--blanco-crema) !important;
+        border-radius: 8px !important;
+        margin-left: 0.5rem !important;
+        padding: 0.5rem 1rem !important;
+        border: 2px solid var(--lavanda-flor) !important;
+    }
+    
+    .menu-link-tienda:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--sombra-media);
+        border-color: var(--blanco-crema) !important;
+        padding-left: 1rem !important;
+    }
+    
+    .menu-link-tienda i {
+        margin-right: 5px;
     }
     
     .beneficios-grid {
@@ -1394,6 +1450,75 @@ footer {
     .productos-grid {
         grid-template-columns: repeat(3, 1fr);
     }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .nav-menu {
+        width: 80%;
+        max-width: 320px;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .menu-close {
+        display: flex;
+    }
+}
+
+/* Ajuste para netbooks/desktop pequeños (1024px a 1200px) */
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+    .nav-menu ul {
+        gap: 0.3rem !important;
+    }
+    
+    .nav-menu a {
+        font-size: 0.9rem !important;
+        padding: 0.4rem 0.6rem !important;
+    }
+    
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+    
+    .logo span {
+        font-size: 0.8rem;
+    }
+}
+
+/* ===== MENÚ MÓVIL - ASEGURAR QUE ESTÉ OCULTO EN DESKTOP ===== */
+.nav-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 85%;
+    max-width: 350px;
+    height: 100vh;
+    background-color: var(--blanco-crema);
+    box-shadow: var(--sombra-fuerte);
+    padding: 4rem 2rem;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+    border-right: 3px solid var(--lavanda-flor);
+}
+
+.nav-menu.active {
+    left: 0;
+}
+
+/* ===== AJUSTE PARA EL BOTÓN DE TIENDA EN MÓVIL ===== */
+.nav-menu .menu-link-tienda {
+    margin-top: 0.5rem;
+    padding: 0.8rem !important;
+    border-radius: 8px;
+    border: 2px solid var(--lavanda-flor);
+}
+
+/* ===== CORRECCIÓN PARA QUE EL HEADER NO CUBRA EL CONTENIDO ===== */
+html {
+    scroll-padding-top: 70px; /* Compensa el header sticky */
+    scroll-behavior: smooth;
 }
 
 @media screen and (min-width: 1200px) {

@@ -5,7 +5,7 @@ const productos = [
         nombre: "Aceite de Lavanda",
         descripcion: "Relajante y calmante. Ideal para dormir y reducir ansiedad.",
         precio: 15.99,
-        imagen: "https://images.pexels.com/photos/4195694/pexels-photo-4195694.jpeg?auto=compress&cs=tinysrgb&w=400",
+        imagen: "https://mejorconsalud.as.com/wp-content/uploads/2022/05/aceite-esencial.jpg",
         categoria: "aceites",
         destacado: true
     },
@@ -14,7 +14,7 @@ const productos = [
         nombre: "Aceite de Menta",
         descripcion: "Energizante y refrescante. Perfecto para concentración.",
         precio: 14.99,
-        imagen: "https://images.pexels.com/photos/4195534/pexels-photo-4195534.jpeg?auto=compress&cs=tinysrgb&w=400",
+        imagen: "https://mejorconsalud.as.com/wp-content/uploads/2022/05/aceite-esencial.jpg",
         categoria: "aceites",
         destacado: true
     },
@@ -23,7 +23,7 @@ const productos = [
         nombre: "Aceite de Eucalipto",
         descripcion: "Descongestionante y purificador. Ideal para vías respiratorias.",
         precio: 16.99,
-        imagen: "https://images.pexels.com/photos/4195379/pexels-photo-4195379.jpeg?auto=compress&cs=tinysrgb&w=400",
+        imagen: "https://mejorconsalud.as.com/wp-content/uploads/2022/05/aceite-esencial.jpg",
         categoria: "aceites",
         destacado: false
     },
@@ -32,7 +32,7 @@ const productos = [
         nombre: "Aceite de Romero",
         descripcion: "Estimulante y fortalecedor. Bueno para la memoria.",
         precio: 15.99,
-        imagen: "https://images.pexels.com/photos/4195325/pexels-photo-4195325.jpeg?auto=compress&cs=tinysrgb&w=400",
+        imagen: "https://mejorconsalud.as.com/wp-content/uploads/2022/05/aceite-esencial.jpg",
         categoria: "aceites",
         destacado: false
     },
@@ -41,7 +41,7 @@ const productos = [
         nombre: "Aceite de Manzanilla",
         descripcion: "Suave y antiinflamatorio. Ideal para piel sensible.",
         precio: 17.99,
-        imagen: "https://images.pexels.com/photos/4195670/pexels-photo-4195670.jpeg?auto=compress&cs=tinysrgb&w=400",
+        imagen: "https://mejorconsalud.as.com/wp-content/uploads/2022/05/aceite-esencial.jpg",
         categoria: "aceites",
         destacado: false
     },
@@ -50,7 +50,7 @@ const productos = [
         nombre: "Aceite de Árbol de Té",
         descripcion: "Antiséptico y antifungal. Perfecto para el cuidado de la piel.",
         precio: 18.99,
-        imagen: "https://images.pexels.com/photos/4195347/pexels-photo-4195347.jpeg?auto=compress&cs=tinysrgb&w=400",
+        imagen: "https://mejorconsalud.as.com/wp-content/uploads/2022/05/aceite-esencial.jpg",
         categoria: "aceites",
         destacado: false
     },
@@ -59,7 +59,7 @@ const productos = [
         nombre: "Difusor Cerámico",
         descripcion: "Difusor ultrasónico de cerámica hecho a mano.",
         precio: 45.99,
-        imagen: "https://images.pexels.com/photos/4195693/pexels-photo-4195693.jpeg?auto=compress&cs=tinysrgb&w=400",
+        imagen: "https://mejorconsalud.as.com/wp-content/uploads/2022/05/aceite-esencial.jpg",
         categoria: "difusores",
         destacado: false
     },
@@ -68,7 +68,7 @@ const productos = [
         nombre: "Set Relax",
         descripcion: "Lavanda + Manzanilla + Difusor de viaje",
         precio: 39.99,
-        imagen: "https://images.pexels.com/photos/4195698/pexels-photo-4195698.jpeg?auto=compress&cs=tinysrgb&w=400",
+        imagen: "https://mejorconsalud.as.com/wp-content/uploads/2022/05/aceite-esencial.jpg",
         categoria: "sets",
         destacado: false
     }
@@ -397,9 +397,32 @@ function initCheckout() {
                 return;
             }
             
-            const total = carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
-            alert(`✨ ¡Gracias por tu compra en Jacarandá!\n\nTotal: $${total.toFixed(2)}\n\nTe contactaremos por WhatsApp para coordinar el envío.`);
+            // Construir el mensaje con los productos del carrito
+            let mensaje = "Hola! Quiero hacer un pedido:%0A%0A";
             
+            // Agregar cada producto
+            carrito.forEach(item => {
+                mensaje += `• ${item.nombre} - $${item.precio.toFixed(2)} x ${item.cantidad} = $${(item.precio * item.cantidad).toFixed(2)}%0A`;
+            });
+            
+            // Calcular total
+            const total = carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
+            mensaje += `%0A📍 *TOTAL: $${total.toFixed(2)}*%0A`;
+            mensaje += `%0A📍 Zona: Rosario, Santa Fe%0A`;
+            mensaje += `%0A📍 Método de pago: (a confirmar)%0A`;
+            mensaje += `%0A📦 Envío: (a coordinar)%0A%0A`;
+            mensaje += `✨ ¡Gracias por elegir Jacarandá!`;
+            
+            // Número de WhatsApp
+            const numero = "5493415806460";
+            
+            // Crear enlace
+            const url = `https://wa.me/${numero}?text=${mensaje}`;
+            
+            // Abrir WhatsApp
+            window.open(url, '_blank');
+            
+            // Limpiar carrito
             carrito = [];
             actualizarCarritoUI();
             guardarCarrito();
