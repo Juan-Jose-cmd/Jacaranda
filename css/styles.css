@@ -1296,6 +1296,148 @@ footer {
     width: 100%;
 }
 
+/* ===== LIBRO DE CARO ===== */
+.libro-caro {
+    padding: 5rem 0;
+    background-color: var(--blanco-crema);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Un pequeño detalle decorativo de fondo */
+.libro-caro::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--lavanda-flor) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.libro-caro .container {
+    position: relative;
+    z-index: 2;
+}
+
+.libro-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Por defecto, una columna en móvil */
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.libro-imagen {
+    text-align: center;
+}
+
+.libro-imagen img {
+    max-width: 100%;
+    width: 100%;
+    max-width: 350px; /* Limita el tamaño en pantallas grandes */
+    height: auto;
+    border-radius: 30px;
+    box-shadow: var(--sombra-fuerte);
+    border: 4px solid var(--lavanda-flor);
+    transition: transform 0.4s ease;
+}
+
+.libro-imagen img:hover {
+    transform: scale(1.02) rotate(1deg);
+}
+
+.libro-contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.libro-contenido h2 {
+    font-size: 2rem;
+    color: var(--violeta-profundo);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.libro-contenido .destacado {
+    color: var(--purpura-flor);
+    font-style: italic;
+}
+
+.libro-descripcion {
+    color: var(--violeta-profundo);
+    margin-bottom: 0.8rem;
+    line-height: 1.7;
+}
+
+.btn-libro {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, var(--purpura-flor), var(--violeta-profundo));
+    color: var(--blanco-crema);
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    border: 2px solid var(--lavanda-flor);
+    box-shadow: var(--sombra-media);
+    margin-top: 1rem;
+    align-self: flex-start; /* Para que no ocupe todo el ancho en desktop */
+    width: auto;
+}
+
+.btn-libro i {
+    font-size: 1.1rem;
+    transition: transform 0.3s;
+}
+
+.btn-libro:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--sombra-fuerte);
+    border-color: var(--blanco-crema);
+}
+
+.btn-libro:hover i {
+    transform: rotate(10deg) scale(1.1);
+}
+
+/* ===== RESPONSIVE LIBRO ===== */
+@media screen and (min-width: 768px) {
+    .libro-grid {
+        grid-template-columns: 1fr 1fr; /* Dos columnas en tablets y desktop */
+        gap: 3rem;
+    }
+
+    .libro-contenido h2 {
+        font-size: 2.2rem;
+    }
+
+    .libro-imagen img {
+        max-width: 100%; /* La imagen ocupa el ancho de su columna */
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .libro-caro {
+        padding: 6rem 0;
+    }
+    
+    .libro-grid {
+        gap: 4rem;
+    }
+    
+    .libro-contenido h2 {
+        font-size: 2.5rem;
+    }
+}
+
 /* ===== RESPONSIVE ===== */
 @media screen and (min-width: 768px) {
     .logo h1 {
