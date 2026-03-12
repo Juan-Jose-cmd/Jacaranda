@@ -1,79 +1,3 @@
-// ===== BASE DE DATOS DE PRODUCTOS =====
-const productos = [
-    {
-        id: 1,
-        nombre: "Aceite de Lavanda",
-        descripcion: "Relajante y calmante. Ideal para dormir y reducir ansiedad.",
-        precio: 15.99,
-        imagen: "https://mejorconsalud.as.com/wp-content/uploads/2022/05/aceite-esencial.jpg",
-        categoria: "aceites",
-        destacado: true
-    },
-    {
-        id: 2,
-        nombre: "Aceite de Menta",
-        descripcion: "Energizante y refrescante. Perfecto para concentración.",
-        precio: 14.99,
-        imagen: "https://mejorconsalud.as.com/wp-content/uploads/2022/05/aceite-esencial.jpg",
-        categoria: "aceites",
-        destacado: true
-    },
-    {
-        id: 3,
-        nombre: "Aceite de Eucalipto",
-        descripcion: "Descongestionante y purificador. Ideal para vías respiratorias.",
-        precio: 16.99,
-        imagen: "https://mejorconsalud.as.com/wp-content/uploads/2022/05/aceite-esencial.jpg",
-        categoria: "aceites",
-        destacado: false
-    },
-    {
-        id: 4,
-        nombre: "Aceite de Romero",
-        descripcion: "Estimulante y fortalecedor. Bueno para la memoria.",
-        precio: 15.99,
-        imagen: "https://mejorconsalud.as.com/wp-content/uploads/2022/05/aceite-esencial.jpg",
-        categoria: "aceites",
-        destacado: false
-    },
-    {
-        id: 5,
-        nombre: "Aceite de Manzanilla",
-        descripcion: "Suave y antiinflamatorio. Ideal para piel sensible.",
-        precio: 17.99,
-        imagen: "https://mejorconsalud.as.com/wp-content/uploads/2022/05/aceite-esencial.jpg",
-        categoria: "aceites",
-        destacado: false
-    },
-    {
-        id: 6,
-        nombre: "Aceite de Árbol de Té",
-        descripcion: "Antiséptico y antifungal. Perfecto para el cuidado de la piel.",
-        precio: 18.99,
-        imagen: "https://mejorconsalud.as.com/wp-content/uploads/2022/05/aceite-esencial.jpg",
-        categoria: "aceites",
-        destacado: false
-    },
-    {
-        id: 7,
-        nombre: "Difusor Cerámico",
-        descripcion: "Difusor ultrasónico de cerámica hecho a mano.",
-        precio: 45.99,
-        imagen: "https://mejorconsalud.as.com/wp-content/uploads/2022/05/aceite-esencial.jpg",
-        categoria: "difusores",
-        destacado: false
-    },
-    {
-        id: 8,
-        nombre: "Set Relax",
-        descripcion: "Lavanda + Manzanilla + Difusor de viaje",
-        precio: 39.99,
-        imagen: "https://mejorconsalud.as.com/wp-content/uploads/2022/05/aceite-esencial.jpg",
-        categoria: "sets",
-        destacado: false
-    }
-];
-
 // ===== VARIABLES GLOBALES =====
 let carrito = [];
 let filtroActual = "todos";
@@ -159,7 +83,8 @@ function cerrarCarrito() {
 }
 
 function agregarAlCarrito(id) {
-    const producto = productos.find(p => p.id === id);
+    // Usar la función de productos.js
+    const producto = obtenerProductoPorId(id);
     if (!producto) return;
     
     const itemExistente = carrito.find(item => item.id === id);
@@ -278,19 +203,8 @@ function cargarProductos() {
     
     console.log('Cargando productos...');
     
-    let productosFiltrados = [...productos];
-    
-    // Aplicar filtro
-    if (filtroActual !== 'todos') {
-        productosFiltrados = productosFiltrados.filter(p => p.categoria === filtroActual);
-    }
-    
-    // Aplicar orden
-    if (ordenActual === 'menor-precio') {
-        productosFiltrados.sort((a, b) => a.precio - b.precio);
-    } else if (ordenActual === 'mayor-precio') {
-        productosFiltrados.sort((a, b) => b.precio - a.precio);
-    }
+    // Usar la función de productos.js
+    const productosFiltrados = obtenerProductos(filtroActual, ordenActual);
     
     // Renderizar estilo Mercado Libre
     if (productosFiltrados.length === 0) {
@@ -306,31 +220,34 @@ function cargarProductos() {
     productosGrid.innerHTML = productosFiltrados.map(producto => {
         // Calcular cuotas simuladas
         const cuotas = Math.floor(producto.precio / 3);
-        const tieneEnvioGratis = producto.precio > 25;
-        const esOferta = producto.id === 1 || producto.id === 3;
+        const tieneEnvioGratis = producto.precio > 25 || producto.envioGratis;
+        
+        // Determinar badge
+        let badgeHTML = '';
+        if (producto.badge) {
+            const badgeClass = producto.badge === 'OFERTA' ? 'producto-badge-oferta' : '';
+            badgeHTML = `<span class="producto-badge ${badgeClass}">${producto.badge}</span>`;
+        } else if (producto.destacado) {
+            badgeHTML = '<span class="producto-badge">MÁS VENDIDO</span>';
+        }
+        
+        // Precio anterior
+        const precioAnteriorHTML = producto.precioAnterior ? 
+            `<span class="precio-anterior">$${producto.precioAnterior.toFixed(2)}</span>` : '';
         
         return `
         <div class="producto-card">
             <a href="#" class="producto-link" onclick="event.preventDefault()">
                 <div class="producto-img">
-                    ${esOferta ? '<span class="producto-badge producto-badge-oferta">OFERTA</span>' : ''}
-                    ${producto.destacado ? '<span class="producto-badge">MÁS VENDIDO</span>' : ''}
+                    ${badgeHTML}
                     <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
                 </div>
                 <div class="producto-info">
                     <h3>${producto.nombre}</h3>
                     <div class="producto-precio">
                         <span class="precio-actual">$${producto.precio.toFixed(2)}</span>
-                        ${producto.id === 3 ? '<span class="precio-anterior">$22.99</span>' : ''}
+                        ${precioAnteriorHTML}
                     </div>
-                    <div class="producto-cuotas">
-                        hasta ${cuotas} cuotas sin interés
-                    </div>
-                    ${tieneEnvioGratis ? `
-                    <div class="producto-envio">
-                        <i class="fas fa-truck"></i> Envío gratis
-                    </div>
-                    ` : ''}
                 </div>
             </a>
             <button class="btn-agregar" onclick="agregarAlCarrito(${producto.id})">
@@ -396,32 +313,30 @@ function initCheckout() {
                 alert('🛒 Tu carrito está vacío');
                 return;
             }
-            
-            // Construir el mensaje con los productos del carrito
-            let mensaje = "Hola! Quiero hacer un pedido:%0A%0A";
-            
+
+            // Construir el mensaje con emojis codificados
+            let mensaje = "%F0%9F%8C%B9 ¡Hola! Quiero hacer un pedido:%0A%0A"; // ✨
+
             // Agregar cada producto
             carrito.forEach(item => {
-                mensaje += `• ${item.nombre} - $${item.precio.toFixed(2)} x ${item.cantidad} = $${(item.precio * item.cantidad).toFixed(2)}%0A`;
+                const subtotal = item.precio * item.cantidad;
+                mensaje += `• ${item.nombre} - $${item.precio.toFixed(2)} x ${item.cantidad} = $${subtotal.toFixed(2)}%0A`;
             });
-            
+
             // Calcular total
             const total = carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
-            mensaje += `%0A📍 *TOTAL: $${total.toFixed(2)}*%0A`;
-            mensaje += `%0A📍 Zona: Rosario, Santa Fe%0A`;
-            mensaje += `%0A📍 Método de pago: (a confirmar)%0A`;
-            mensaje += `%0A📦 Envío: (a coordinar)%0A%0A`;
-            mensaje += `✨ ¡Gracias por elegir Jacarandá!`;
-            
+            mensaje += `%0A%F0%9F%93%8D *TOTAL: $${total.toFixed(2)}*%0A%0A`; // 📍
+            mensaje += `%F0%9F%8C%BF ¡Gracias por elegir Jacarandá!`; // ✨ (variante)
+
             // Número de WhatsApp
             const numero = "5493415806460";
-            
+
             // Crear enlace
             const url = `https://wa.me/${numero}?text=${mensaje}`;
-            
+
             // Abrir WhatsApp
             window.open(url, '_blank');
-            
+
             // Limpiar carrito
             carrito = [];
             actualizarCarritoUI();
@@ -436,7 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM cargado');
     initMenu();
     initCarrito();
-    initTienda(); // ¡ESTA LÍNEA ES LA QUE FALTABA!
+    initTienda();
     initContacto();
     initCheckout();
 });
