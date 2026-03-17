@@ -3,10 +3,10 @@ const productos = [
     {
         id: 1,
         nombre: "Colgante de Aromaterapia",
-        descripcion: "Relajante y calmante. Ideal para dormir y reducir ansiedad.",
+        descripcion: "Lleva el aroma que amas",
         precio: 8000,
         imagen: "../recursos/Arbol1.png",
-        categoria: "aceites",
+        categoria: "collares",
         destacado: false,
         envioGratis: false,
         cuotasDisponibles: false
@@ -14,10 +14,10 @@ const productos = [
     {
         id: 2,
         nombre: "Colgante de Aromaterapia",
-        descripcion: "Energizante y refrescante. Perfecto para concentración.",
+        descripcion: "Lleva el aroma que amas",
         precio: 8000,
         imagen: "../recursos/Arbol2.png",
-        categoria: "aceites",
+        categoria: "collares",
         destacado: false,
         envioGratis: true,
         cuotasDisponibles: false
@@ -25,10 +25,10 @@ const productos = [
     {
         id: 3,
         nombre: "Colgante de Aromaterapia",
-        descripcion: "Descongestionante y purificador. Ideal para vías respiratorias.",
+        descripcion: "Lleva el aroma que amas",
         precio: 8000,
         imagen: "../recursos/Alas.png",
-        categoria: "aceites",
+        categoria: "collares",
         destacado: false,
         envioGratis: true,
         cuotasDisponibles: false
@@ -36,21 +36,21 @@ const productos = [
     {
         id: 4,
         nombre: "Colgante de Aromaterapia",
-        descripcion: "Estimulante y fortalecedor. Bueno para la memoria.",
+        descripcion: "Lleva el aroma que amas",
         precio: 8000,
         imagen: "../recursos/Loto.png",
-        categoria: "aceites",
+        categoria: "collares",
         destacado: false,
         envioGratis: true,
         cuotasDisponibles: false
     },
     {
         id: 5,
-        nombre: `Libro: "Aromas que sanan"`,
-        descripcion: "Suave y antiinflamatorio. Ideal para piel sensible.",
+        nombre: "El aroma y su poder curativo",
+        descripcion: "Iniciá tu viaje holístico",
         precio: 10000,
         imagen: "../recursos/Libro.PNG",
-        categoria: "aceites",
+        categoria: "libro",
         destacado: false,
         envioGratis: true,
         cuotasDisponibles: false
