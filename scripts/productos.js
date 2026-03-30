@@ -55,6 +55,72 @@ const productos = [
         envioGratis: true,
         cuotasDisponibles: false
     },
+    {
+        id: 6,
+        nombre: "Colgante Aroma con Botella Vacía Grabada en Cristal y Caja de Piedra del Amor",
+        descripcion: "Ideal para compartir los aromas",
+        precio: 30000,
+        imagen: "../recursos/CajitaDeBotellitas.PNG",
+        categoria: "collares",
+        destacado: false,
+        envioGratis: true,
+        cuotasDisponibles: false
+    },
+    {
+        id: 7,
+        nombre: "Almohadillas de repuesto de fieltro redondo de colores",
+        descripcion: "",
+        precio: 14000,
+        imagen: "../recursos/Almoadillas.PNG",
+        categoria: "collares",
+        destacado: false,
+        envioGratis: true,
+        cuotasDisponibles: false
+    },
+    {
+        id: 8,
+        nombre: "Botella de Perfume",
+        descripcion: "Lleva el perfume que quieras, donde quieras",
+        precio: 14000,
+        imagen: "../recursos/ColganteBotellitapuntiagudo.PNG",
+        categoria: "collares",
+        destacado: false,
+        envioGratis: true,
+        cuotasDisponibles: false
+    },
+    {
+        id: 9,
+        nombre: "Burrito",
+        descripcion: "Lleva el perfume que quieras, donde quieras",
+        precio: 14000,
+        imagen: "../recursos/Burrito.PNG",
+        categoria: "collares",
+        destacado: false,
+        envioGratis: true,
+        cuotasDisponibles: false
+    },
+    {
+        id: 10,
+        nombre: "Abedul",
+        descripcion: "Lleva el perfume que quieras, donde quieras",
+        precio: 14000,
+        imagen: "../recursos/Abedul.PNG",
+        categoria: "collares",
+        destacado: false,
+        envioGratis: true,
+        cuotasDisponibles: false
+    },
+    {
+        id: 11,
+        nombre: "Acedera",
+        descripcion: "Lleva el perfume que quieras, donde quieras",
+        precio: 14000,
+        imagen: "../recursos/Acedera.PNG",
+        categoria: "collares",
+        destacado: false,
+        envioGratis: true,
+        cuotasDisponibles: false
+    },
 ];
 
 // Función para obtener productos filtrados
